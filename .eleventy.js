@@ -5,7 +5,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 // 📦 Plugin Imports
-const pluginImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
 const pluginMinifier = require("@codestitchofficial/eleventy-plugin-minify");
 const pluginSitemap = require("@quasibit/eleventy-plugin-sitemap");
 
