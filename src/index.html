@@ -272,12 +272,12 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                     <span class="cs-name">Joseph Argiro</span>
                     <span class="cs-job">Founder</span>
                     <div class="cs-social-group">
-                        <a href="" class="cs-link linkedin" aria-label="visit linkedin">
+                        <a href="https://www.linkedin.com/in/joseph-argiro/" class="cs-link linkedin" aria-label="visit linkedin">
                             <img class="cs-icon" loading="lazy" decoding="async"
                                     src="/assets/svgs/linkedin.svg"
                                     alt="linkedin" width="12" height="12">
                         </a>
-                        <a href="" class="cs-link twitter" aria-label="visit twitter">
+                        <a href="https://x.com/JosephArgiro" class="cs-link twitter" aria-label="visit twitter">
                             <img class="cs-icon" loading="lazy" decoding="async"
                                     src="/assets/svgs/x-logo.svg"
                                     alt="twitter" width="12" height="12">
@@ -301,12 +301,12 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                     <span class="cs-name">Tyler Wanner</span>
                     <span class="cs-job">Deployment & Infrastructure</span>
                     <div class="cs-social-group">
-                        <a href="" class="cs-link linkedin" aria-label="visit linkedin">
+                        <a href="https://www.linkedin.com/in/tylerwanner/" class="cs-link linkedin" aria-label="visit linkedin">
                             <img img class="cs-icon" loading="lazy" decoding="async"
                                     src="/assets/svgs/linkedin.svg"
                                     alt="linkedin" width="12" height="12">
                         </a>
-                        <a href="" class="cs-link twitter" aria-label="visit twitter">
+                        <a href="/" class="cs-link twitter" aria-label="visit twitter">
                             <img img class="cs-icon" loading="lazy" decoding="async"
                                     src="/assets/svgs/x-logo.svg"
                                     alt="twitter" width="12" height="12">
@@ -458,5 +458,48 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                 alt="wind turbine" width="650" height="613">
     </picture>
 </section>
+
+<script>
+  (function () {
+    const form = document.getElementById('contact-form');
+    const statusEl = document.getElementById('form-status');
+
+    function setStatus(msg, ok) {
+      statusEl.textContent = msg;
+      statusEl.style.color = ok ? 'var(--secondary, #4ade80)' : 'var(--primary, #ff5050)';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setStatus('Sending…', true);
+
+      const payload = {
+        name:   form.name.value.trim(),
+        email:  form.email.value.trim(),
+        phone:  form.phone.value.trim(),
+        message:form.message.value.trim(),
+      };
+
+      try {
+        const res = await fetch('/.netlify/functions/airtable-contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(text || 'Request failed');
+        }
+
+        setStatus('Thanks! We received your message.', true);
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        setStatus('Oops—could not send. Please try again.', false);
+      }
+    });
+  })();
+</script>
 
 {% endblock %}

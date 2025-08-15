@@ -413,7 +413,7 @@
         }
 
         .cs-text {
-            font-size: 1em;
+            font-size: 0.8em;
         }
 
         .cs-top-text {
@@ -449,8 +449,16 @@
         .cs-top-text {
             width: 80%;
         }
+    }
+}
 
+@media only screen and (min-width: 81.25rem) {
+    #sbs-72 {
         .cs-ul {
+            font-size: 1em;
+        }
+
+        .cs-text {
             font-size: 1em;
         }
     }
@@ -480,7 +488,7 @@
             justify-content: center;
             align-items: center;
             /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
+            gap: clamp(0.01rem, 0.01em, 4rem);
         }
 
         .cs-content {
@@ -494,6 +502,7 @@
             flex-direction: column;
             /* centers content horizontally, set to flex-start to left align */
             align-items: center;
+            margin-bottom: 2em;
         }
 
         .cs-title {
@@ -504,6 +513,10 @@
                 0 0 3px var(--primary),
                 0 0 4px var(--primary),
                 0 0 1px var(--primary);
+        }
+
+        .cs-text {
+            font-size: 0.8em;
         }
 
         .cs-card-group {
@@ -647,11 +660,12 @@
 
         .cs-item-text {
             /* 14px - 16px */
-            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            font-size: 0.8em;
             line-height: 1.5em;
             margin: 0;
             padding: 0;
             color: var(--bodyTextColorWhite);
+            width: 101%;
         }
 
         .cs-picture {
@@ -786,6 +800,14 @@
         .cs-item {
             grid-column: span 3;
         }
+
+        .cs-text {
+            font-size: 1em;
+        }
+
+        .cs-item-text {
+            font-size: 1em;
+        }
     }
 }
 
@@ -877,7 +899,7 @@
 @media only screen and (min-width: 48rem) {
     #cta-2144 {
         .cs-container {
-            max-width: calc(1280/16 * 1rem);
+            max-width: 70rem;
             flex-direction: row;
             justify-content: center;
             align-items: center;
@@ -890,6 +912,14 @@
             max-width: 45%;
             /* prevents flexbox from squishing it */
             flex: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 81.25rem) {
+    #cta-2144 {
+        .cs-text {
+            font-size: 1em;
         }
     }
 }
@@ -954,7 +984,7 @@
 
         .cs-item {
             list-style: none;
-            width: 100%;
+            width: 85%;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -965,7 +995,7 @@
             justify-self: center;
             border-radius: 10px;
             border: 1px solid #484848;
-            box-shadow: 0 0 400px #7620ee;
+            box-shadow: 0 0 4px #7620ee;
         }
 
         .cs-picture {
@@ -1029,7 +1059,7 @@
         }
 
         .cs-job {
-            font-size: calc(16 / 16 * 1rem);
+            font-size: 0.8rem;
             line-height: 1.5em;
             text-align: inherit;
             margin: 0 0 calc(16 / 16 * 1rem);
@@ -1118,6 +1148,7 @@
 
         .cs-content-group {
             text-align: left;
+            margin-left: 1.6em;
         }
 
         .cs-button {
@@ -1186,6 +1217,14 @@
             min-height: calc(245 / 16 * 1rem);
             /* 245px - 338px */
             height: 35em;
+        }
+    }
+}
+
+@media only screen and (min-width: 81.25rem) {
+    #meet-team-1215 {
+        .cs-job {
+            font-size: 1em;
         }
     }
 }
@@ -1435,6 +1474,14 @@
         .cs-wrapper {
             flex-direction: row;
             align-items: flex-start;
+        }
+    }
+}
+
+@media only screen and (min-width: 81.25rem) {
+    #faq-1261 {
+        .cs-job {
+            font-size: 1em;
         }
     }
 }
