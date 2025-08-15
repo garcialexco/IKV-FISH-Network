@@ -55,6 +55,7 @@
                 0 0 3px #7620EE,
                 0 0 4px #7620EE,
                 0 0 1px #7620EE;
+            font-size: 2.5em;
         }
 
         .cs-logo-group {
@@ -63,8 +64,7 @@
             align-items: center;
             justify-content: center;
             gap: clamp(1rem, 8vw, 10rem);
-            width: 100%;
-            margin-top: 1em;
+            width: 12em;
         }
 
         .cs-logo-group a {
@@ -96,14 +96,23 @@
 
 @media only screen and (min-width: 48rem) {
     .cs-logo {
-            width: 100%;
+            width: 70% !important;
         }
 
         .prov {
             .cs-logo {
-                width: 100%;
+                width: 100% !important;
             }
         }
+    
+    .cs-logo-group {
+        gap: clamp(1rem, 4vw, 10rem) !important;
+        width: 100% !important;
+    }
+
+    .cs-logo-group a {
+        padding: 0 !important;
+    }
 }
 
 /* Desktop - 1300px */
@@ -115,7 +124,15 @@
         }
 
         .cs-logo-group {
-            gap: calc(160 / 16 * 1rem);
+            gap: calc(160 / 16 * 1rem) !important;
+        }
+
+        .cs-logo {
+            width: 100% !important;
+        }
+
+        .cs-logo-group a {
+            padding: 0.25 !important;
         }
     }
 }
@@ -162,6 +179,15 @@
             &:last-of-type {
                 margin-bottom: calc(32 / 16 * 1rem);
             }
+        }
+
+        .cs-top-text {
+            text-align: center;
+        }
+
+        .cs-ul {
+            width: 80% !important;
+            margin: 0 auto;
         }
 
         .cs-topper {
@@ -386,6 +412,19 @@
             width: 45%;
         }
 
+        .cs-text {
+            font-size: 1em;
+        }
+
+        .cs-top-text {
+            text-align: left;
+        }
+
+        .cs-ul {
+            margin: 0 1em;
+            font-size: 0.8em;
+        }
+
         .cs-button-solid {
             margin: 0;
         }
@@ -393,6 +432,26 @@
         .cs-topper, .cs-title {
             margin: auto 0;
             padding-bottom: 0.8em;
+        }
+    }
+}
+
+@media only screen and (min-width: 64rem) {
+    #sbs-72 {
+        .cs-video {
+            margin-left: 8em;
+        }
+
+        .cs-content {
+            width: 29em;
+        }
+
+        .cs-top-text {
+            width: 80%;
+        }
+
+        .cs-ul {
+            font-size: 1em;
         }
     }
 }
@@ -463,8 +522,7 @@
             width: auto;
             /* 300px - 580px */
             height: clamp(18.75rem, 50vw, 36.25rem);
-            margin: 1em;
-            margin-bottom: 2em;
+            margin: 0 1em;
             /* prevents padding and border from affecting height and width */
             box-sizing: border-box;
             padding: 0;
@@ -706,6 +764,7 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                opacity: 0.8;
             }
         }
     }
@@ -717,6 +776,7 @@
         .cs-item {
             grid-column: span 6;
         }
+
     }
 }
 

@@ -96,7 +96,7 @@
 
         .cs-text {
             /* 16px - 25px */
-            font-size: 1rem;
+            font-size: 0.8rem;
             line-height: 1.5em;
             text-align: center;
             width: 40%;
@@ -121,7 +121,7 @@
             font-weight: 700;
             margin: auto;
             color: #fff;
-            padding: 0 calc(24 / 16 * 1rem);
+            padding: 0 calc(64 / 16 * 1rem);
             background-color: var(--primary);
             border-radius: 10px;
             display: inline-block;
@@ -156,5 +156,6 @@
 @media only screen and (max-width: 768px) {
     .cs-text {
         width: 100% !important;
+        font-size: 1em;
     }
 }
