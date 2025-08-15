@@ -2,6 +2,10 @@
   publish = "public/"
   command = "npm run build"
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild" # makes ESM/imports painless
+
 [[plugins]]
   # Installs the Lighthouse Build Plugin for all deploy contexts
   package = "@netlify/plugin-lighthouse"
@@ -17,3 +21,4 @@
     "public/assets/svgs",   # Preloaded SVGs
     ".cache" # Remote Assets
   ]
+

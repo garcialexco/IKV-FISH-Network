@@ -457,31 +457,53 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                 src="/assets/images/fish-school.jpg"
                 alt="wind turbine" width="650" height="613">
     </picture>
+
+    <!-- Thank You Modal -->
+    <div id="thankyou-modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.6);z-index:9999;">
+        <div style="background:#0b0316;padding:24px 28px;border-radius:12px;max-width:480px;width:90%;box-shadow:0 0 20px var(--primary);text-align:center;">
+            <h3 style="margin:0 0 8px;color:#fff;">Thanks for reaching out! 🎉</h3>
+            <p style="margin:0 0 16px;color:#cfcbe9;">We got your message and we’ll get back to you shortly.</p>
+            <button id="thankyou-close" class="cs-button-solid" style="border:none;cursor:pointer;">Close</button>
+        </div>
+    </div>
 </section>
 
 <script>
   (function () {
-    const form = document.getElementById('contact-form');
-    const statusEl = document.getElementById('form-status');
+    const form = document.querySelector('#contact-1694 .cs-form');
+    const btn  = form.querySelector('.cs-submit');
+    const modal = document.getElementById('thankyou-modal');
+    const closeBtn = document.getElementById('thankyou-close');
 
-    function setStatus(msg, ok) {
-      statusEl.textContent = msg;
-      statusEl.style.color = ok ? 'var(--secondary, #4ade80)' : 'var(--primary, #ff5050)';
-    }
+    const showModal = () => { modal.style.display = 'flex'; }
+    const hideModal = () => { modal.style.display = 'none'; }
+    closeBtn.addEventListener('click', hideModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      setStatus('Sending…', true);
 
+      // Grab values
       const payload = {
-        name:   form.name.value.trim(),
-        email:  form.email.value.trim(),
-        phone:  form.phone.value.trim(),
-        message:form.message.value.trim(),
+        name:   form.querySelector('[name="name"]').value.trim(),
+        email:  form.querySelector('[name="email"]').value.trim(),
+        phone:  form.querySelector('[name="phone"]').value.trim(),
+        message:form.querySelector('[name="Message"]').value.trim(),
       };
 
+      // Basic guard
+      if (!payload.name || !payload.email || !payload.message) {
+        alert('Please fill in the required fields.');
+        return;
+      }
+
+      // UX: disable while submitting
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
       try {
-        const res = await fetch('/.netlify/functions/airtable-contact', {
+        const res = await fetch('/.netlify/functions/createLead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -489,14 +511,18 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 
         if (!res.ok) {
           const text = await res.text();
-          throw new Error(text || 'Request failed');
+          throw new Error(text || 'Failed to submit');
         }
 
-        setStatus('Thanks! We received your message.', true);
+        // Reset + Thank you
         form.reset();
+        showModal();
       } catch (err) {
         console.error(err);
-        setStatus('Oops—could not send. Please try again.', false);
+        alert('Sorry, something went wrong submitting the form. Please try again.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = original;
       }
     });
   })();
