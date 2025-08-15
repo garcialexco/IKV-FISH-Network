@@ -44,8 +44,8 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 
     <!-- Background Image -->
     <div class="cs-video-wrapper">
-            <video loading="lazy" src="/assets/videos/herovideo.mp4" autoplay="" loop="" muted="" playsinline="" class="video-visible"></video>
-            <img src="" alt="Background image" class="fallback-image">
+            <video loading="lazy" src="https://click-mortar-library.sfo3.cdn.digitaloceanspaces.com/IKV-FISH/videos/herovideo.mp4" autoplay="" loop="" muted="" playsinline="" class="video-visible"></video>
+            <img src="https://click-mortar-library.sfo3.cdn.digitaloceanspaces.com/IKV-FISH/images/heroimg.png" alt="Background image" class="fallback-image">
     </div>
 </section>
 
@@ -457,75 +457,6 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                 src="/assets/images/fish-school.jpg"
                 alt="wind turbine" width="650" height="613">
     </picture>
-
-    <!-- Thank You Modal -->
-    <div id="thankyou-modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.6);z-index:9999;">
-        <div style="background:#0b0316;padding:24px 28px;border-radius:12px;max-width:480px;width:90%;box-shadow:0 0 20px var(--primary);text-align:center;">
-            <h3 style="margin:0 0 8px;color:#fff;">Thanks for reaching out! 🎉</h3>
-            <p style="margin:0 0 16px;color:#cfcbe9;">We got your message and we’ll get back to you shortly.</p>
-            <button id="thankyou-close" class="cs-button-solid" style="border:none;cursor:pointer;">Close</button>
-        </div>
-    </div>
 </section>
-
-<script>
-  (function () {
-    const form = document.querySelector('#contact-1694 .cs-form');
-    const btn  = form.querySelector('.cs-submit');
-    const modal = document.getElementById('thankyou-modal');
-    const closeBtn = document.getElementById('thankyou-close');
-
-    const showModal = () => { modal.style.display = 'flex'; }
-    const hideModal = () => { modal.style.display = 'none'; }
-    closeBtn.addEventListener('click', hideModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // Grab values
-      const payload = {
-        name:   form.querySelector('[name="name"]').value.trim(),
-        email:  form.querySelector('[name="email"]').value.trim(),
-        phone:  form.querySelector('[name="phone"]').value.trim(),
-        message:form.querySelector('[name="Message"]').value.trim(),
-      };
-
-      // Basic guard
-      if (!payload.name || !payload.email || !payload.message) {
-        alert('Please fill in the required fields.');
-        return;
-      }
-
-      // UX: disable while submitting
-      const original = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-
-      try {
-        const res = await fetch('/.netlify/functions/createLead', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (!res.ok) {
-          const text = await res.text();
-          throw new Error(text || 'Failed to submit');
-        }
-
-        // Reset + Thank you
-        form.reset();
-        showModal();
-      } catch (err) {
-        console.error(err);
-        alert('Sorry, something went wrong submitting the form. Please try again.');
-      } finally {
-        btn.disabled = false;
-        btn.textContent = original;
-      }
-    });
-  })();
-</script>
 
 {% endblock %}
