@@ -345,6 +345,7 @@ html {
     /* reset margin and padding so there's no gap between the nav and the screen edges */
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 /* Mobile - 1023px */
@@ -1049,6 +1050,7 @@ html {
         }
 
         .cs-li {
+            width: 5em;
             margin: 0 clamp(1.5rem, 3vw, 2.5rem) 0 0;
             &:last-of-type {
                 margin: 0;
@@ -1066,7 +1068,7 @@ html {
 @media only screen and (min-width: 48rem) {
     #cs-footer-106 {
         .cs-logo img {
-            margin-right: -63%;
+            margin-right: -50%;
         }
     }
 }
@@ -1074,7 +1076,7 @@ html {
 @media only screen and (min-width: 64rem) {
     #cs-footer-106 {
         .cs-logo img {
-            margin-right: -75%;
+            margin-right: -70%;
         }
     }
 }

@@ -1,8 +1,5 @@
 module.exports = {
-    name: "Code Stitch Web Designs",
-    email: "help@codestitch.app",
-    phoneForTel: "555-779-4407",
-    phoneFormatted: "(555) 779-4407",
+    name: "FISH Network",
     address: {
         lineOne: "First Address Line",
         lineTwo: "Second Address Line",
@@ -10,7 +7,6 @@ module.exports = {
         state: "CO",
         zip: "80206",
         country: "US",
-        mapLink: "https://maps.app.goo.gl/TEdS5KoLC9ZcULuQ6",
     },
     socials: {
         facebook: "https://www.facebook.com/",

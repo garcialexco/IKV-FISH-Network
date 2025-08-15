@@ -143,7 +143,7 @@
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #sbs-72 {
+    #about {
         position: relative;        
         overflow: hidden;
         padding: var(--sectionPadding);
@@ -392,7 +392,7 @@
 
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-    #sbs-72 {
+    #about {
         .cs-container {
             max-width: calc(1280 / 16 * 1rem);
             flex-direction: row;
@@ -437,7 +437,7 @@
 }
 
 @media only screen and (min-width: 64rem) {
-    #sbs-72 {
+    #about {
         .cs-video {
             margin-left: 8em;
         }
@@ -453,7 +453,7 @@
 }
 
 @media only screen and (min-width: 81.25rem) {
-    #sbs-72 {
+    #about {
         .cs-ul {
             font-size: 1em;
         }
@@ -1492,7 +1492,7 @@
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #contact-1694 {
+    #contact {
         padding: var(--sectionPadding);
         background-color: #05080F;
         position: relative;
@@ -1721,7 +1721,7 @@
 
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-    #contact-1694 {
+    #contact {
         .cs-container {
             max-width: calc(1280 / 16 * 1rem);
             flex-direction: row;
@@ -1747,7 +1747,7 @@
 
 /* Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
-    #contact-1694 {
+    #contact {
         .cs-label {
             &:nth-of-type(2), &:nth-of-type(3) {
                 grid-column: span 12;
@@ -1761,22 +1761,3 @@
     }
 }
                                 
-#hero-82 .cs-video-wrapper {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-#hero-82 .cs-video-wrapper video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-}

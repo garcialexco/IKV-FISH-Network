@@ -11,7 +11,7 @@
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #hero-82 {
+    #home {
         /* Centers button */
         text-align: center;
         /* 144px - 300px - leaving extra space for the navigation */
@@ -149,6 +149,26 @@
                     width: 100%;
                 }
             }
+        }
+
+        .cs-video-wrapper {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .cs-video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     }
 }
