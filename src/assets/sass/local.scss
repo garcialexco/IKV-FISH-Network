@@ -106,7 +106,7 @@
         }
     
     .cs-logo-group {
-        gap: clamp(1rem, 4vw, 10rem) !important;
+        gap: clamp(1rem, 3vw, 10rem) !important;
         width: 100% !important;
     }
 
@@ -1727,6 +1727,10 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .cs-title {
+            width: 14em;
         }
 
         .cs-form {
