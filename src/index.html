@@ -374,23 +374,35 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 </section>
                                 
 <!-- ============================================ -->
-<!--               Newsletter Signup             -->
+<!--                   Contact                    -->
 <!-- ============================================ -->
 
 <section id="contact">
     <div class="cs-container">
         <!--Form-->
-        <form class="cs-form" name="Newsletter Form" method="post" data-netlify="true">
+        <form class="cs-form" name="Contact Form" method="post">
             <div class="cs-content">
-                <span class="cs-topper">Subscribe</span>
-                <h2 class="cs-title">Join Our Newsletter</h2>
+                <span class="cs-topper">Contact Us</span>
+                <h2 class="cs-title">Let's Collaborate</h2>
             </div>
             <label class="cs-label">
+                Name *
+                <input class="cs-input" required type="text" id="name-1694" name="name" placeholder="John / Jane Doe">
+            </label>
+            <label class="cs-label">
                 Email *
-                <input class="cs-input" required type="email" id="email-1694" name="email" placeholder="you@example.com">
+                <input class="cs-input" required type="email" id="email-1694" name="email" placeholder="name@company.com">
+            </label>
+            <label class="cs-label">
+                Phone
+                <input class="cs-input" required type="tel" id="phone-1694" name="phone" placeholder="+1 (867) 5309">
+            </label>
+            <label class="cs-label cs-label-message">
+                Message *
+                <textarea class="cs-input cs-textarea" required name="Message" id="message-1694" placeholder="Hello I'm interested in..."></textarea>
             </label>
             <p class="cs-wrapper">
-                <button class="cs-button-solid cs-submit" type="submit">Subscribe</button>
+                <button class="cs-button-solid cs-submit" type="submit">Book Meeting</button>
             </p>
         </form>
     </div>
@@ -403,10 +415,9 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
         <source media="(min-width: 601px)"
                 srcset="https://click-mortar-library.sfo3.cdn.digitaloceanspaces.com/IKV-FISH/images/fish-school.jpg">
         <img loading="lazy" decoding="async"
-             src="https://click-mortar-library.sfo3.cdn.digitaloceanspaces.com/IKV-FISH/images/fish-school.jpg"
-             alt="fish school" width="650" height="613">
+                src="https://click-mortar-library.sfo3.cdn.digitaloceanspaces.com/IKV-FISH/images/fish-school.jpg"
+                alt="fish school" width="650" height="613">
     </picture>
 </section>
-
 
 {% endblock %}
